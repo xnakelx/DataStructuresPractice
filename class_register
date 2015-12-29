@@ -1,0 +1,103 @@
+# DataStructuresPractice
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#define REG_LENGTH 6
+#define COURSE count%7
+enum className{//names for each course
+  CS20A = 0,
+  CS21A,
+  CS29A,
+  CS30A,
+  CS35A,
+  CS36A
+};
+static int* getinfo(FILE* fp, int registrants[]);
+static void print_info(int arr[]);
+int main(int argc, char* argv[]){
+  int registrants[REG_LENGTH] = {0};
+  FILE* fp = fopen("Ex1_p11_sample.txt","r");
+  if(fp == NULL)
+    assert(fp);
+  
+  print_info(getinfo(fp, registrants));
+
+}
+
+static int* getinfo(FILE* fp, int registrants[]){
+  int count;
+  int store_info;
+  int c;
+  for(count = 0; (c = getc(fp)) != EOF; ++count ){
+    if(c == '0' || c == '1'){
+      store_info = c - '0';
+      printf("%d",store_info);
+      switch(COURSE) {
+  
+      case CS20A:
+	if(store_info)
+	  registrants[COURSE]++;
+	break;
+   
+      case CS21A:
+	if(store_info)
+	  registrants[COURSE]++;
+	break;
+      case CS29A:
+	if(store_info)
+	  registrants[COURSE]++;
+	break;
+      case CS30A:
+	if(store_info)
+	  registrants[COURSE]++;
+	break;
+      case CS35A:
+	if(store_info)
+	  registrants[COURSE]++;
+	break;
+      case CS36A:
+	if(store_info)
+	  registrants[COURSE]++;
+	break;
+      default:
+	break;
+      }
+ if(count == 6)
+	count = -2;
+    }     
+  }
+  return registrants;
+}
+
+void print_info(int arr[]){
+  int count;
+  for(count = 0; count < REG_LENGTH; ++count){
+    switch(COURSE) {
+  
+    case CS20A:
+      printf("CS20A: %d\n",arr[count]);
+      break;
+   
+    case CS21A:
+      printf("CS21A: %d\n",arr[count]);
+      break;
+    case CS29A:
+      printf("CS29A: %d\n",arr[count]);
+      break;
+    case CS30A:
+      printf("CS30A: %d\n",arr[count]);
+      break;
+    case CS35A:
+      printf("CS35A: %d\n",arr[count]);
+      break;
+    case CS36A:
+      printf("CS36A: %d\n",arr[count]);
+      break;
+    default:
+      printf("An error has occured\n");
+      break;
+    }
+  
+  }
+}
+  
