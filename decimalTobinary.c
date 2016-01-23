@@ -7,8 +7,7 @@ int main(int argc, char* argv[]){
   return 0;
 }
 void decimalTobinary(int decimal){
-  if(decimal < 0)return;
-  if(decimal == 0)return;
+  if(decimal <= 0)return;
   decimalTobinary(decimal/2);
   printf("%d",decimal%2);
   return;
